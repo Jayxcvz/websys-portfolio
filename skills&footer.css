@@ -1,0 +1,115 @@
+/* Skills Section */
+.skills {
+  padding: 60px 40px;
+  background: linear-gradient(to bottom, #000000 5%, #f5f5f5);
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  color: white;
+  box-sizing: border-box; 
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center; 
+  max-width: 1200px; 
+  width: 100%;
+}
+
+.skills h2 {
+  font-size: 2.4em;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.skill-card {
+  background: #535354;
+  padding: 30px;
+  border-radius: 20px;
+  width: 300px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card h3 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #000000;
+}
+
+.skill-card p {
+  font-size: 1.2em;
+  color: whitesmoke;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/*footer*/
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.footer-logo img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-link {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.social-link img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-text {
+    margin-top: 10px;
+    font-size: 12px;
+    opacity: 0.8;
+}
