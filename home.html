@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@600;700;800&family=Outfit:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JClixks. - Portfolio</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body class="landing-page">
+
+  <!-- Navbar -->
+  <nav class="navbar" id="mainNav">
+    <div class="logo">
+      <a href="home.html" class="logo-link">
+        <img src="oLogo.png" alt="JClixks Logo" class="nav-logo-img" />
+      </a>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="home.html" class="active">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact Me</a></li>
+    </ul>
+
+    <!-- Hamburger (mobile) -->
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Hero Section as Activity Highlight -->
+  <section id="home" class="hero">
+    <div class="hero-img-container">
+      <div class="hero-img-aura"></div>
+      <div class="hero-img-card" id="heroCard">
+        <!-- Slideshow (5 images from MePic) -->
+        <div class="hero-slideshow" id="heroSlideshow">
+          <div class="hero-slide active">
+            <img src="MePic/Me1.JPG" alt="Photo 1" />
+          </div>
+          <div class="hero-slide">
+            <img src="MePic/Me2.JPEG" alt="Photo 2" />
+          </div>
+          <div class="hero-slide">
+            <img src="MePic/Me3.jpeg" alt="Photo 3" />
+          </div>
+          <div class="hero-slide">
+            <img src="MePic/Me4.jpeg" alt="Photo 4" />
+          </div>
+          <div class="hero-slide">
+            <img src="MePic/Me5.jpg" alt="Photo 5" />
+          </div>
+        </div>
+
+        <!-- Dot Indicators (5 Dots) -->
+        <div class="slideshow-dots" id="slideshowDots">
+          <span class="slide-dot active" data-index="0"></span>
+          <span class="slide-dot" data-index="1"></span>
+          <span class="slide-dot" data-index="2"></span>
+          <span class="slide-dot" data-index="3"></span>
+          <span class="slide-dot" data-index="4"></span>
+        </div>
+
+        <!-- Floating Glass Badges on Photo -->
+        <div class="floating-badge badge-top-left">
+          <span class="status-dot"></span>
+          <span>Available for Hire</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="hero-text">
+      <div class="badges">
+        <span class="badge">
+          <span class="badge-icon"></span>Multimedia Artist
+        </span>
+      </div>
+
+      <h1>Welcome to <span class="highlight-name">JClixks.</span></h1>
+      <div class="hero-role-line">
+        <span class="role-prefix">//</span>
+        <span class="typed-text" id="typedText"></span><span class="typing-cursor"></span>
+      </div>
+
+      <p class="hero-bio">I'm <span class="highlight-name">Jay</span>, the creative behind the brand, specializing in
+        Photography, Videography, and Post-Production. I create visuals that capture genuine moments, communicate ideas,
+        and turn stories into something worth remembering.</p>
+
+      <p class="hero-bio">Whether it's a portrait session, special event, creative project, or film production, I take
+        every project with a thoughtful approach—from capturing the moment to crafting the final visual.</p>
+
+      <p class="hero-bio">For inquiries and bookings, feel free to send your project details, preferred date, location,
+        and creative vision. I'd be more than happy to discuss how I can bring your idea to life.</p>
+
+      <p class="hero-bio hero-bio-closing">Every moment has a story. I'm here to capture yours.</p>
+
+      <!-- CTA Buttons -->
+      <div class="hero-cta">
+        <a href="about.html" class="btn btn-primary">
+          <span>Know More About Me</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <a href="contact.html" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>Get In Touch</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p class="footer-text">© 2026 JClixks. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = document.querySelectorAll('.hero-img-card, .hero-text');
+      cards.forEach(card => card.classList.add('reveal'));
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      cards.forEach(card => observer.observe(card));
+
+      // Hamburger menu toggle
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+          });
+        });
+      }
+
+      // Dynamic Typewriter Effect for Hero Subtitle
+      const typedTextSpan = document.getElementById('typedText');
+      const roles = ["Photographer", "Videographer", "Content Creator", "Photo, Video & Film Editor"];
+      let roleIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function type() {
+        if (!typedTextSpan) return;
+        const currentRole = roles[roleIndex];
+
+        if (isDeleting) {
+          typedTextSpan.textContent = currentRole.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          typedTextSpan.textContent = currentRole.substring(0, charIndex + 1);
+          charIndex++;
+        }
+
+        let typeSpeed = isDeleting ? 40 : 80;
+
+        if (!isDeleting && charIndex === currentRole.length) {
+          typeSpeed = 2000; // Pause at full word
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+          typeSpeed = 400; // Pause before typing next word
+        }
+
+        setTimeout(type, typeSpeed);
+      }
+      setTimeout(type, 500);
+
+      // Auto Slideshow
+      const slides = document.querySelectorAll('.hero-slide');
+      const dots = document.querySelectorAll('.slide-dot');
+      let currentSlide = 0;
+
+      function goToSlide(index) {
+        if (!slides.length) return;
+        slides[currentSlide].classList.remove('active');
+        dots[currentSlide].classList.remove('active');
+        currentSlide = index % slides.length;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+      }
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          goToSlide(parseInt(dot.getAttribute('data-index')));
+        });
+      });
+
+      setInterval(() => goToSlide(currentSlide + 1), 3500);
+
+      // Interactive 3D Card Tilt Effect
+      const heroCard = document.getElementById('heroCard');
+      if (heroCard && window.innerWidth > 768) {
+        heroCard.addEventListener('mousemove', (e) => {
+          const rect = heroCard.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+
+          const rotateX = (-y / rect.height) * 14;
+          const rotateY = (x / rect.width) * 14;
+
+          heroCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+
+        heroCard.addEventListener('mouseleave', () => {
+          heroCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
