@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@600;700;800&family=Outfit:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Albums - JAY</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="mainNav">
+    <div class="logo">
+      <a href="index.html" class="logo-link">
+        <img src="oLogo.png" alt="JClixks Logo" class="nav-logo-img" />
+      </a>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Photo Albums Section -->
+  <section id="albums" class="projects" style="min-height: calc(100vh - 160px);">
+    <h2>PHOTO ALBUMS</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <div class="project-image">
+          <img src="album_nature.png" alt="Nature Photography" />
+        </div>
+        <div class="project-content">
+          <h3>Nature Landscapes</h3>
+          <p>A collection of cinematic landscape photography capturing the serene beauty of lush green mountains during
+            golden hour.</p>
+          <div class="project-tags">
+            <span>Landscape</span>
+            <span>Golden Hour</span>
+            <span>Nature</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Album</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="album_portrait.png" alt="Portrait Photography" />
+        </div>
+        <div class="project-content">
+          <h3>Studio Portraits</h3>
+          <p>Professional portrait photography emphasizing dramatic shadows, studio lighting, and high-fashion
+            aesthetics.</p>
+          <div class="project-tags">
+            <span>Portrait</span>
+            <span>Studio Lighting</span>
+            <span>Fashion</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Album</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="album_urban.png" alt="Urban Street Photography" />
+        </div>
+        <div class="project-content">
+          <h3>Urban Nights</h3>
+          <p>Cinematic street photography highlighting neon lights and cyberpunk vibes in the bustling city at night.</p>
+          <div class="project-tags">
+            <span>Street Photography</span>
+            <span>Urban</span>
+            <span>Night</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Album</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p class="footer-text">© 2026 JClixks. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = document.querySelectorAll('.project-card, .projects h2');
+      cards.forEach(card => card.classList.add('reveal'));
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      cards.forEach(card => observer.observe(card));
+
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          hamburger.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

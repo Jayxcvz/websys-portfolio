@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@600;700;800&family=Outfit:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects - JAY</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="mainNav">
+    <div class="logo">
+      <a href="index.html" class="logo-link">
+        <img src="oLogo.png" alt="JClixks Logo" class="nav-logo-img" />
+      </a>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Project Section -->
+  <section id="projects" class="projects" style="min-height: calc(100vh - 160px);">
+    <h2>MY PROJECTS</h2>
+
+    <div class="projects-container">
+
+      <!-- Project Card 1 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="project1.png" alt="Animated Learning Mobile Application" />
+        </div>
+
+        <div class="project-content">
+          <h3>Animated Learning Mobile Application</h3>
+          <p>A mobile application designed to deliver educational content through interactive animations, sound effects,
+            and engaging visuals. The app focuses on improving user engagement using multimedia elements such as
+            animated characters, transitions, and intuitive navigation.</p>
+
+          <div class="project-tags">
+            <span>Java / Kotlin</span>
+            <span>Android Studio</span>
+            <span>XML Layout / Material Design</span>
+          </div>
+
+          <div class="project-links">
+            <a href="#" class="project-link">View Project</a>
+            <a href="#" class="project-link">Github</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 2 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="proj2.png" alt="Interactive Multimedia Portfolio Website" />
+        </div>
+
+        <div class="project-content">
+          <h3>Interactive Multimedia Portfolio Website</h3>
+          <p>A responsive portfolio website developed to showcase multimedia works including animations, designs, and
+            development projects. The website features smooth transitions, modern UI components, and interactive
+            elements to enhance user experience.</p>
+
+          <div class="project-tags">
+            <span>HTML, CSS, JavaScript</span>
+            <span>VS Code</span>
+            <span>Bootstrap / CSS Animation</span>
+          </div>
+
+          <div class="project-links">
+            <a href="#" class="project-link">View Project</a>
+            <a href="#" class="project-link">Github</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img src="proj3.jpg" alt="2D Animated Game Prototype" />
+        </div>
+
+        <div class="project-content">
+          <h3>2D Animated Game Prototype</h3>
+          <p>A simple 2D game developed to demonstrate animation principles, user interaction, and game mechanics. The
+            project integrates sprite animation, collision detection, and sound effects to create an engaging multimedia
+            experience.</p>
+
+          <div class="project-tags">
+            <span>C# / JavaScript</span>
+            <span>Unity / Godot</span>
+            <span>2D Game Engine</span>
+          </div>
+
+          <div class="project-links">
+            <a href="#" class="project-link">View Project</a>
+            <a href="#" class="project-link">Github</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p class="footer-text">© 2026 JClixks. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = document.querySelectorAll('.project-card, .projects h2');
+      cards.forEach(card => card.classList.add('reveal'));
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      cards.forEach(card => observer.observe(card));
+
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          hamburger.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

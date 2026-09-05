@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@600;700;800&family=Outfit:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills - JAY</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="mainNav">
+    <div class="logo">
+      <a href="index.html" class="logo-link">
+        <img src="oLogo.png" alt="JClixks Logo" class="nav-logo-img" />
+      </a>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills" style="min-height: calc(100vh - 160px);">
+    <h2>MY SKILLS</h2>
+
+    <div class="skills-container">
+
+      <div class="skill-card">
+        <img width="60" height="60" src="film.png" alt="Film">
+        <br>
+        <h3>FILM</h3>
+        <p>Videography skills involve a combination of technical camera operation, lighting, audio recording, and
+          editing proficiency, paired with creative storytelling to capture high-quality digital content.</p>
+      </div>
+
+      <div class="skill-card">
+        <img width="60" height="60" src="photovid.png" alt="Photo & Video Editing">
+        <br>
+        <h3>PHOTO & VIDEO EDITING</h3>
+        <p>Photo and video editing involves manipulating visual and audio assets to create compelling, high-quality
+          narratives using tools like Adobe Premiere Pro, DaVinci Resolve, Photoshop, or Lightroom.</p>
+      </div>
+
+      <div class="skill-card">
+        <img width="60" height="60" src="photo.png" alt="Photography">
+        <br>
+        <h3>PHOTOGRAPHY</h3>
+        <p>Photography skills involve combining technical knowledge of cameras, lighting, and software with artistic
+          vision to capture and edit high-quality images.</p>
+      </div>
+
+      <div class="skill-card">
+        <img width="60" height="60" src="uiux.png" alt="UI/UX Design">
+        <br>
+        <h3>UI/UX DESIGN</h3>
+        <p>UI/UX design is a specialized skill set focusing on creating intuitive, visually appealing, and user-centric
+          digital products.</p>
+      </div>
+
+      <div class="skill-card">
+        <img width="60" height="60" src="graphics.png" alt="Graphic Design">
+        <br>
+        <h3>GRAPHIC DESIGN</h3>
+        <p>A graphic designer creates visual concepts using computer software or hand-drawing to communicate ideas that
+          inspire, inform, and captivate consumers, covering print and digital media.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p class="footer-text">© 2026 JClixks. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = document.querySelectorAll('.skill-card, .skills h2');
+      cards.forEach(card => card.classList.add('reveal'));
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      cards.forEach(card => observer.observe(card));
+
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          hamburger.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
