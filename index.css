@@ -195,7 +195,32 @@ h1, h2, h3, h4, h5, h6, .highlight-name {
 .skill-card p {
   font-size: 14px;
   color: #aaa;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+/* SVG ICON WRAPPER */
+.skill-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.75);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 0.3s ease,
+              color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.skill-card:hover .skill-icon-wrap {
+  transform: scale(1.12) rotate(-4deg);
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
 }
 
 
